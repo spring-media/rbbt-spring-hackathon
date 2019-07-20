@@ -1,36 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
-const NavBar = styled.div`
-  position: fixed;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  width: 100%;
+import logo from '../images/spring-logo.png';
+
+const Wrapper = styled.div`
   height: 80px;
-  background: #fff;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 `;
 
 const Nav = styled.nav`
   display: flex;
   width: 100%;
+  padding: 0 1.5rem;
   align-items: center;
   justify-content: space-between;
-  max-width: ${props => props.theme.layout.medium};
+  max-width: ${props => props.theme.layout.small};
 `;
 
 const Logo = styled.div`
-  width: 60px;
-  height: 60px;
-
+  width: 140px;
+  height: 80px;
+  align-self: flex-end;
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     margin: 0;
   }
 `;
@@ -45,43 +44,42 @@ const LinkList = styled.ul`
   }
 `;
 
-const Link = styled.a`
+const StyledLink = styled.a`
   text-decoration: none;
   color: black;
-  padding: 0.5rem;
 
-  .active {
-    background: red;
-  }
+  padding: 0.5rem;
 `;
 
 const SiteLink = ({ to, children }) => {
   return (
     <li>
-      <Link href={to}>{children}</Link>
+      <StyledLink href={to}>{children}</StyledLink>
     </li>
   );
 };
 
 const Navigation = () => {
   return (
-    <NavBar>
+    <Wrapper>
       <Nav>
         <Logo>
-          <img src="https://www.placecage.com/200/60" alt="" />
+          <Link to="/">
+            <img src={logo} alt="Spring Media" />
+          </Link>
         </Logo>
         <LinkList>
-          <SiteLink to="/">Home</SiteLink>
-          <SiteLink to="#about">About</SiteLink>
-          <SiteLink to="#location">Location</SiteLink>
-          <SiteLink to="#schedule">Schedule</SiteLink>
-          <SiteLink to="#register">Register</SiteLink>
-          <SiteLink to="#prizes">Prizes</SiteLink>
-          <SiteLink to="#partners">Partners</SiteLink>
-          <SiteLink to="#contact">Contact</SiteLink>
+          <SiteLink to="/#">Home</SiteLink>
+          <SiteLink to="/#about">About</SiteLink>
+          <SiteLink to="/#location">Location</SiteLink>
+          <SiteLink to="/#schedule">Schedule</SiteLink>
+          <SiteLink to="/#register">Register</SiteLink>
+          <SiteLink to="/#prizes">Prizes</SiteLink>
+          <SiteLink to="/#partners">Partners</SiteLink>
+          <SiteLink to="/#contact">Contact</SiteLink>
         </LinkList>
       </Nav>
-    </NavBar>
+    </Wrapper>
   );
 };
 
