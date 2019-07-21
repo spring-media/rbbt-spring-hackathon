@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
+import SEO from './seo';
 
 import Header from './header';
 import Navigation from './navigation';
@@ -17,11 +18,6 @@ const MainContainer = styled.main`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
       contentfulFooter {
         footerContent {
           childMarkdownRemark {
@@ -35,6 +31,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <SEO title="Home" />
         <Header>
           <Navigation />
         </Header>
