@@ -42,7 +42,7 @@ const GoogleMap = props => {
   };
 
   return (
-    <div style={{ height: '450px', width: '100%' }}>
+    <div style={{ height: '500px', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_API_KEY }}
         defaultCenter={defaultProps.center}
@@ -55,7 +55,8 @@ const GoogleMap = props => {
 };
 
 GoogleMap.propTypes = {
-  coordinates: PropTypes.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  coordinates: PropTypes.object.isRequired,
 };
 
 export default GoogleMap;

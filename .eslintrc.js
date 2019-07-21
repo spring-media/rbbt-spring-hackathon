@@ -19,6 +19,7 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
+        "forbid-prop-types": "false",
         "prefer-destructuring": "false",
         "semi": true,
         "singleQuote": true,
