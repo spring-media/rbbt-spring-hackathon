@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from './container';
 
+import SectionTitle from './section-title';
+
 const Video = styled.section``;
 
 const TextWrapper = styled.section`
@@ -61,7 +63,7 @@ const Links = styled.div`
 const About = content => {
   return (
     <Container type="small">
-      <h2>{content.content.sectionTitle}</h2>
+      <SectionTitle>{content.content.sectionTitle}</SectionTitle>
       <Video dangerouslySetInnerHTML={{ __html: content.content.video.childMarkdownRemark.html }} />
       <TextWrapper>
         <Text

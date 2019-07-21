@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
+
 import About from '../components/about';
+import LocationVenue from '../components/location-venue';
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -29,12 +31,21 @@ const IndexPage = () => {
           }
         }
       }
+      contentfulLocationAndVenue {
+        sectionTitle
+        address
+        coordinates {
+          lat
+          lon
+        }
+      }
     }
   `);
 
   return (
     <Layout>
       <About content={data.contentfulAbout} />
+      <LocationVenue content={data.contentfulLocationAndVenue} />
     </Layout>
   );
 };

@@ -19,6 +19,7 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
+        "prefer-destructuring": "false",
         "semi": true,
         "singleQuote": true,
         "printWidth": 120
