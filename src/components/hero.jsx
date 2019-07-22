@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Hero = () => {
-  return (
-    <div>
-      <h1>Hero</h1>
+const Hero = () => (
+  <section className="hero is-info is-large">
+    <div className="hero-body">
+      <div className="container is-desktop">
+        <p className="title">Hero</p>
+      </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default Hero;

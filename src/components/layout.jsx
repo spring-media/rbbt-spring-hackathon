@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import SEO from './seo';
 
 import Header from './header';
-import Navigation from './navigation';
 import Footer from './footer';
 
 import theme from '../../config/theme';
-import './layout.css';
 
-const MainContainer = styled.main`
-  margin-top: 80px;
-`;
+import './layout.css';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -32,10 +28,8 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <SEO title="Home" />
-        <Header>
-          <Navigation />
-        </Header>
-        <MainContainer>{children}</MainContainer>
+        <Header />
+        <main>{children}</main>
         <Footer content={data.contentfulFooter.footerContent} />
       </>
     </ThemeProvider>

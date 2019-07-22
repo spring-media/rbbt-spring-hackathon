@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './container';
+import Container from '../elements/container';
 
 const Wrapper = styled.footer`
   background: ${props => props.theme.colors.primary.inkBlue};

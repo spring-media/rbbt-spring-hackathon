@@ -1,13 +1,16 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
+import Section from '../components/section';
+import Container from '../elements/container';
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
-    <Image />
+    <SEO title="Page not found" />
+    <Container type="small">
+      <Section title="Sorry, we can’t find the page you were looking for." />
+    </Container>
   </Layout>
 );
 

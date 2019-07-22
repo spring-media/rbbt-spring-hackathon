@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './container';
+import Text from '../elements/text';
 
-import SectionTitle from './section-title';
-
-const Video = styled.section``;
+const Video = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+`;
 
 const TextWrapper = styled.section`
   display: flex;
@@ -12,32 +14,14 @@ const TextWrapper = styled.section`
   justify-content: center;
 `;
 
-const Text = styled.article`
-  &:first-child {
-    padding-right: 1em;
-  }
-  &:last-child {
-    padding-left: 1em;
-  }
-`;
-
 const Links = styled.div`
-  display: flex;
-  justify-content: center;
-
-  ul {
-    list-style: none;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-
   li {
-    display: inline-block;
-    margin: 0 1em;
+    display: inline-flex;
+    margin: 1em;
 
     &:nth-child(1) {
       a {
-        background: ${props => props.theme.colors.secondary.neonGreen};
+        background: ${props => props.theme.colors.secondary.darkGrey};
       }
     }
     &:nth-child(2) {
@@ -60,26 +44,15 @@ const Links = styled.div`
   }
 `;
 
-const About = content => {
-  return (
-    <Container type="small">
-      <SectionTitle>{content.content.sectionTitle}</SectionTitle>
-      <Video dangerouslySetInnerHTML={{ __html: content.content.video.childMarkdownRemark.html }} />
-      <TextWrapper>
-        <Text
-          dangerouslySetInnerHTML={{
-            __html: content.content.mission.childMarkdownRemark.html,
-          }}
-        />
-        <Text
-          dangerouslySetInnerHTML={{
-            __html: content.content.topic.childMarkdownRemark.html,
-          }}
-        />
-      </TextWrapper>
-      <Links dangerouslySetInnerHTML={{ __html: content.content.links.childMarkdownRemark.html }} />
-    </Container>
-  );
-};
+const About = content => (
+  <>
+    <Video dangerouslySetInnerHTML={{ __html: content.content.video.childMarkdownRemark.html }} />
+    <TextWrapper>
+      <Text content={content.content.mission.childMarkdownRemark.html} />
+      <Text content={content.content.topic.childMarkdownRemark.html} />
+    </TextWrapper>
+    <Links dangerouslySetInnerHTML={{ __html: content.content.links.childMarkdownRemark.html }} />
+  </>
+);
 
 export default About;

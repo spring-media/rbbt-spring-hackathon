@@ -55,7 +55,6 @@ const GoogleMap = props => {
 };
 
 GoogleMap.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   coordinates: PropTypes.object.isRequired,
 };
 

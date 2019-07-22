@@ -11,6 +11,7 @@ module.exports = {
     author: '',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
@@ -47,6 +48,14 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/, // See below to configure properly
+        },
       },
     },
     // Todo: get icon for use as favicon

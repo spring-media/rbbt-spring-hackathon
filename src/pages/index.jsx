@@ -2,10 +2,20 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
+// Components
+import Section from '../components/section';
+import Container from '../elements/container';
 import About from '../components/about';
 import LocationVenue from '../components/location-venue';
 import Schedule from '../components/schedule';
-import Prizes from '../components/prizes';
+import Register from '../components/register';
+import Text from '../elements/text';
+import Jury from '../components/jury';
+import LogoLinks from '../components/logo-links';
+import ContactForm from '../components/contact-form';
+
+// Icons
+import contactIcon from '../icons/contact.svg';
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -72,12 +82,16 @@ const IndexPage = () => {
             html
           }
         }
-        jury {
+      }
+      # Partners
+      contentfulPartners {
+        sectionTitle
+        logos {
           title
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
           description
+          fluid(maxWidth: 300, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
+          }
         }
       }
     }
@@ -85,10 +99,46 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <About content={data.contentfulAbout} />
-      <LocationVenue content={data.contentfulLocationAndVenue} />
-      <Schedule content={data.contentfulSchedule} />
-      <Prizes content={data.contentfulPrizes} />
+      <Section id="about" title={data.contentfulAbout.sectionTitle}>
+        <Container type="small">
+          <About content={data.contentfulAbout} />
+        </Container>
+      </Section>
+
+      <Section id="location" title={data.contentfulLocationAndVenue.sectionTitle}>
+        <Container type="small">
+          <LocationVenue content={data.contentfulLocationAndVenue} />
+        </Container>
+      </Section>
+
+      <Section id="schedule" title={data.contentfulSchedule.sectionTitle}>
+        <Schedule content={data.contentfulSchedule} />
+      </Section>
+
+      <Section id="register" title="Register">
+        <Register />
+      </Section>
+
+      <Section id="prizes" title={data.contentfulPrizes.sectionTitle}>
+        <Container type="small">
+          <Text content={data.contentfulPrizes.childContentfulPrizesPrizesTextNode.childMarkdownRemark.html} center />
+        </Container>
+        <Container type="medium">
+          <Jury />
+        </Container>
+      </Section>
+
+      <Section id="partners" title={data.contentfulPartners.sectionTitle}>
+        <Container type="small">
+          <LogoLinks content={data.contentfulPartners} />
+        </Container>
+      </Section>
+
+      <Section id="contact" title="Questions? Contact us!">
+        <Container type="small">
+          <ContactForm />
+        </Container>
+      </Section>
     </Layout>
   );
 };
