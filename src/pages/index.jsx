@@ -14,9 +14,6 @@ import Jury from '../components/jury';
 import LogoLinks from '../components/logo-links';
 import ContactForm from '../components/contact-form';
 
-// Icons
-import contactIcon from '../icons/contact.svg';
-
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query indexPageQuery {
@@ -41,6 +38,13 @@ const IndexPage = () => {
         links {
           childMarkdownRemark {
             html
+          }
+        }
+        logos {
+          title
+          description
+          fluid(maxWidth: 300, quality: 90) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }
@@ -102,6 +106,7 @@ const IndexPage = () => {
       <Section id="about" title={data.contentfulAbout.sectionTitle}>
         <Container type="small">
           <About content={data.contentfulAbout} />
+          <LogoLinks content={data.contentfulAbout} />
         </Container>
       </Section>
 
