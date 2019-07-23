@@ -6,12 +6,6 @@ const Wrapper = styled.div`
   margin-top: 2em;
   margin-bottom: 2em;
 
-  a {
-    color: ${props => props.theme.colors.primary.inkBlue};
-    text-decoration: none;
-    font-weight: bold;
-  }
-
   ${({ center }) =>
     center &&
     `

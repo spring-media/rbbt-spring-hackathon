@@ -41,7 +41,7 @@ template {
 }
 a {
   background-color: transparent;
-  color: #0000ff;
+  color: #ff3e00;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -50,7 +50,7 @@ a {
 a:active,
 a:hover {
   outline-width: 0;
-  color: #ff00ff;
+  color: #ebc410;
 }
 abbr[title] {
   border-bottom: none;

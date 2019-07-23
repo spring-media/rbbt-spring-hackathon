@@ -22,17 +22,16 @@ const Fig = styled.figure`
   display: flex;
   padding: 1rem;
   margin: 0;
+  box-shadow: ${props => props.theme.shadow.base};
+  transition: ${props => props.theme.transition.smoothe};
 
   img {
     object-fit: contain;
     margin-bottom: 0;
-    transition: 0.2s ease;
   }
 
   &:hover {
-    img {
-      transform: scale(1.05);
-    }
+    box-shadow: ${props => props.theme.shadow.hover};
   }
 `;
 

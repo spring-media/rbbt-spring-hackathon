@@ -10,6 +10,7 @@ const Video = styled.div`
 
 const TextWrapper = styled.section`
   display: flex;
+  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
 `;
@@ -21,17 +22,17 @@ const Links = styled.div`
 
     &:nth-child(1) {
       a {
-        background: ${props => props.theme.colors.primary.inkBlue};
+        background: ${props => props.theme.colors.primary.green};
       }
     }
     &:nth-child(2) {
       a {
-        background: ${props => props.theme.colors.secondary.red};
+        background: ${props => props.theme.colors.primary.orange};
       }
     }
     &:nth-child(3) {
       a {
-        background: ${props => props.theme.colors.secondary.pink};
+        background: ${props => props.theme.colors.primary.yellow};
       }
     }
   }

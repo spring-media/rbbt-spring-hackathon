@@ -7,8 +7,12 @@ import logo from '../images/media-hackday-logo.png';
 
 const HeaderWrapper = styled.header`
   position: fixed;
-  top: 0;
   width: 100%;
+  max-width: ${props => props.theme.layout.medium};
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 80px;
   background: #fff;
   z-index: 2;
@@ -34,7 +38,7 @@ const Logo = styled.div`
   width: 220px;
   height: 80px;
   align-self: flex-end;
-  background: ${props => props.theme.colors.primary.inkBlue};
+  background: ${props => props.theme.colors.primary.green};
   padding: 0 10px;
 
   img {
@@ -64,7 +68,7 @@ const StyledLink = styled.a`
   text-decoration: none;
 
   &:before {
-    background-color: #000;
+    background-color: ${props => props.theme.colors.primary.yellow};
     top: 2em;
     content: ' ';
     height: 3px;
@@ -75,6 +79,8 @@ const StyledLink = styled.a`
   }
 
   &:hover {
+    color: ${props => props.theme.colors.primary.green};
+
     &:before {
       left: 0;
       right: 0;

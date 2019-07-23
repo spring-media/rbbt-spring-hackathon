@@ -1,6 +1,9 @@
 const colors = {
   primary: {
     inkBlue: '#0000ff',
+    green: '#30645e',
+    orange: '#ff3e00',
+    yellow: '#ebc410',
   },
   secondary: {
     neonGreen: '#00ff00',
@@ -21,8 +24,8 @@ const theme = {
     large: '83.33333rem',
   },
   shadow: {
-    base: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
-    hover: '0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)',
+    base: '0 1px 3px rgba(48, 100, 94, 0.12), 0 1px 2px rgba(48, 100, 94, 0.24)',
+    hover: '0 14px 28px rgba(48, 100, 94, 0.25), 0 10px 10px rgba(48, 100, 94, 0.22)',
   },
   transition: {
     smoothe: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',

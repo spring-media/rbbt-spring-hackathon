@@ -11,8 +11,14 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   width: 30%;
-  margin: 0.5rem;
+  margin: 1rem;
   background: ${props => props.theme.colors.secondary.lightGrey};
+  box-shadow: ${props => props.theme.shadow.base};
+  transition: ${props => props.theme.transition.smoothe};
+
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.hover};
+  }
 `;
 
 const ImageWrapper = styled.figure`
@@ -28,6 +34,7 @@ const Info = styled.div`
     &:first-child {
       font-weight: bold;
       font-size: 18px;
+      color: ${props => props.theme.colors.primary.green};
     }
   }
 `;
