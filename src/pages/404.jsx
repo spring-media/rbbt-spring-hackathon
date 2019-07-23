@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Section from '../components/section';
+import Section from '../elements/section';
 import Container from '../elements/container';
 
 const NotFoundPage = () => (

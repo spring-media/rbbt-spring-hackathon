@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 // Components
-import Section from '../components/section';
+import Section from '../elements/section';
 import Container from '../elements/container';
 import About from '../components/about';
 import LocationVenue from '../components/location-venue';
@@ -12,7 +12,6 @@ import Register from '../components/register';
 import Text from '../elements/text';
 import Jury from '../components/jury';
 import LogoLinks from '../components/logo-links';
-import ContactForm from '../components/contact-form';
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -40,6 +39,10 @@ const IndexPage = () => {
             html
           }
         }
+      }
+      # Main Partners
+      contentfulMainPartners {
+        sectionTitle
         logos {
           title
           description
@@ -98,6 +101,15 @@ const IndexPage = () => {
           }
         }
       }
+      # Contact
+      contentfulContact {
+        sectionTitle
+        contactEmail {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   `);
 
@@ -106,7 +118,12 @@ const IndexPage = () => {
       <Section id="about" title={data.contentfulAbout.sectionTitle}>
         <Container type="small">
           <About content={data.contentfulAbout} />
-          <LogoLinks content={data.contentfulAbout} />
+        </Container>
+      </Section>
+
+      <Section title={data.contentfulMainPartners.sectionTitle}>
+        <Container type="small">
+          <LogoLinks content={data.contentfulMainPartners} />
         </Container>
       </Section>
 
@@ -139,9 +156,9 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section id="contact" title="Questions? Contact us!">
+      <Section id="contact" title={data.contentfulContact.sectionTitle}>
         <Container type="small">
-          <ContactForm />
+          <Text content={data.contentfulContact.contactEmail.childMarkdownRemark.html} center />
         </Container>
       </Section>
     </Layout>
