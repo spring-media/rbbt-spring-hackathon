@@ -12,27 +12,17 @@ const Wrapper = styled.div`
 const Card = styled.div`
   width: 30%;
   margin: 0.5rem;
-  border-radius: 5px;
-  box-shadow: ${props => props.theme.shadow.base};
-  transition: ${props => props.theme.transition.card};
-
-  &:hover {
-    box-shadow: ${props => props.theme.shadow.hover};
-  }
+  background: ${props => props.theme.colors.secondary.lightGrey};
 `;
 
 const ImageWrapper = styled.figure`
   overflow: hidden;
   object-fit: contain;
   padding: 0;
-
-  img {
-    border-radius: 5px 5px 0 0;
-  }
 `;
 
 const Info = styled.div`
-  padding: 0.5rem;
+  padding: 0 1rem;
 
   p {
     &:first-child {

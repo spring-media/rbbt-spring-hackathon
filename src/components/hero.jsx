@@ -5,8 +5,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   width: 100%;
-  height: 90vh;
-  min-height: 600px;
+  height: 85vh;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -14,10 +13,18 @@ const Wrapper = styled.section`
   align-items: center;
 `;
 
-const HeroImageWrapepr = styled.div`
+const HeroImage = styled(Img)`
   position: absolute;
   height: 100%;
   width: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
 `;
 
 const InnerWrapper = styled.div`
@@ -56,7 +63,7 @@ const Hero = () => {
       query {
         contentfulHero {
           heroImage {
-            fluid(maxWidth: 800, quality: 40) {
+            fluid(maxWidth: 800, quality: 20) {
               ...GatsbyContentfulFluid_withWebp
             }
           }
@@ -79,17 +86,13 @@ const Hero = () => {
     contentfulHero: { heroImage, sponsors, text },
   } = data;
 
-  console.log(sponsors);
-
   return (
     <Wrapper>
       <InnerWrapper>
         <Content dangerouslySetInnerHTML={{ __html: text.childMarkdownRemark.html }} />
         <Sponsors fluid={sponsors.fluid} objectFit />
       </InnerWrapper>
-      <HeroImageWrapepr>
-        <Img fluid={heroImage.fluid} />
-      </HeroImageWrapepr>
+      <HeroImage fluid={heroImage.fluid} />
     </Wrapper>
   );
 };

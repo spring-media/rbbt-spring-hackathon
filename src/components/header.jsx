@@ -10,8 +10,7 @@ const HeaderWrapper = styled.header`
   top: 0;
   width: 100%;
   height: 80px;
-  background: ${props => props.theme.colors.primary.inkBlue};
-  box-shadow: ${props => props.theme.shadow.base};
+  background: #fff;
   z-index: 2;
 `;
 
@@ -32,9 +31,11 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.div`
-  width: 200px;
+  width: 220px;
   height: 80px;
   align-self: flex-end;
+  background: ${props => props.theme.colors.primary.inkBlue};
+  padding: 0 10px;
 
   img {
     width: 100%;
@@ -55,9 +56,30 @@ const LinkList = styled.ul`
 `;
 
 const StyledLink = styled.a`
-  text-decoration: none;
-  color: #fff;
+  font-weight: 700;
+  color: #000;
   padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  &:before {
+    background-color: #000;
+    top: 2em;
+    content: ' ';
+    height: 3px;
+    left: 50%;
+    right: 50%;
+    position: absolute;
+    transition: left 0.3s linear, right 0.3s linear;
+  }
+
+  &:hover {
+    &:before {
+      left: 0;
+      right: 0;
+    }
+  }
 `;
 
 const SiteLink = ({ to, children }) => (
@@ -76,7 +98,7 @@ const Header = () => (
           </Link>
         </Logo>
         <LinkList>
-          <SiteLink to="/#">Home</SiteLink>
+          <SiteLink to="/">Home</SiteLink>
           <SiteLink to="/#about">About</SiteLink>
           <SiteLink to="/#location">Location</SiteLink>
           <SiteLink to="/#schedule">Schedule</SiteLink>

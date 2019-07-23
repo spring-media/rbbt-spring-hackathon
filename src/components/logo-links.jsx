@@ -13,12 +13,6 @@ const Wrapper = styled.div`
 
 const Link = styled.a`
   margin: 1rem;
-  box-shadow: ${props => props.theme.shadow.base};
-  transition: ${props => props.theme.transition.card};
-
-  &:hover {
-    box-shadow: ${props => props.theme.shadow.hover};
-  }
 `;
 
 const Fig = styled.figure`
@@ -32,6 +26,13 @@ const Fig = styled.figure`
   img {
     object-fit: contain;
     margin-bottom: 0;
+    transition: 0.2s ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
   }
 `;
 

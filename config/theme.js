@@ -1,8 +1,6 @@
 const colors = {
   primary: {
     inkBlue: '#0000ff',
-    black: '#000000',
-    white: '#ffffff',
   },
   secondary: {
     neonGreen: '#00ff00',

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Container from '../elements/container';
 
 const Wrapper = styled.footer`
-  background: ${props => props.theme.colors.primary.inkBlue};
+  background: ${props => props.theme.colors.secondary.darkGrey};
   text-align: center;
 `;
 
