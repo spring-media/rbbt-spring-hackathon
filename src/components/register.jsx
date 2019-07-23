@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Register = () => <div>&nbsp;</div>;
+const Register = () => <div id="register">&nbsp;</div>;
 
 export default Register;

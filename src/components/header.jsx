@@ -5,6 +5,11 @@ import { Link } from 'gatsby';
 
 import logo from '../images/media-hackday-logo.png';
 
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line global-require
+  require('smooth-scroll')('a[href*="#"]');
+}
+
 const HeaderWrapper = styled.header`
   position: fixed;
   width: 100%;

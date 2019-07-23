@@ -90,6 +90,11 @@ const IndexPage = () => {
             html
           }
         }
+        childContentfulPrizesApiPrizesTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
       # Partners
       contentfulPartners {
@@ -148,8 +153,9 @@ const IndexPage = () => {
       <Section id="prizes" title={data.contentfulPrizes.sectionTitle}>
         <Container type="small">
           <Text content={data.contentfulPrizes.childContentfulPrizesPrizesTextNode.childMarkdownRemark.html} />
+          <Text content={data.contentfulPrizes.childContentfulPrizesApiPrizesTextNode.childMarkdownRemark.html} />
         </Container>
-        <Container type="large">
+        <Container type="medium">
           <Jury />
         </Container>
       </Section>

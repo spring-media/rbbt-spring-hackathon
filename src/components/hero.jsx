@@ -11,6 +11,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
   margin-top: 80px;
   max-width: ${props => props.theme.layout.medium};
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    background: red;
+    height: 100%;
+  }
 `;
 
 const HeroImage = styled(Img)`
@@ -43,6 +48,11 @@ const Content = styled.div`
 
   a {
     color: ${props => props.theme.colors.primary.yellow};
+    transition: ${props => props.theme.transition.smoothe};
+
+    &:hover {
+      color: ${props => props.theme.colors.primary.orange};
+    }
   }
 `;
 

@@ -38,21 +38,24 @@ const Title = styled.h2`
   }
 `;
 
-const Section = ({ title, center, children }) => (
-  <Wrapper>
+// eslint-disable-next-line react/prop-types
+const Section = ({ title, center, children, id }) => (
+  <Wrapper id={id}>
     <Title center={center}>{title}</Title>
     <div>{children}</div>
   </Wrapper>
 );
 
 Section.propTypes = {
-  children: PropTypes.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   title: PropTypes.string.isRequired,
   center: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 Section.defaultProps = {
   center: false,
+  id: '',
 };
 
 export default Section;
