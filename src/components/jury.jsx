@@ -43,7 +43,7 @@ const Info = styled.div`
 `;
 
 const renderJury = (title, fluid, description) => (
-  <Card>
+  <Card key={title}>
     <ImageWrapper>
       <Img fluid={fluid} />
     </ImageWrapper>

@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 // Components
+import Hero from '../components/hero';
 import Section from '../elements/section';
 import Container from '../elements/container';
 import About from '../components/about';
@@ -115,6 +116,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Hero />
       <Section id="about" title={data.contentfulAbout.sectionTitle}>
         <Container type="small">
           <About content={data.contentfulAbout} />

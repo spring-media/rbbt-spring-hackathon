@@ -12,7 +12,7 @@ const HeaderWrapper = styled.header`
   height: 80px;
   background: ${props => props.theme.colors.primary.inkBlue};
   box-shadow: ${props => props.theme.shadow.base};
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Wrapper = styled.div`
