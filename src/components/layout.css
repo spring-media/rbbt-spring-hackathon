@@ -41,11 +41,16 @@ template {
 }
 a {
   background-color: transparent;
+  color: #0000ff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-text-decoration-skip: objects;
 }
 a:active,
 a:hover {
   outline-width: 0;
+  color: #ff00ff;
 }
 abbr[title] {
   border-bottom: none;

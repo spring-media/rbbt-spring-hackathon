@@ -123,7 +123,7 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section title={data.contentfulMainPartners.sectionTitle}>
+      <Section title={data.contentfulMainPartners.sectionTitle} center>
         <Container type="small">
           <LogoLinks content={data.contentfulMainPartners} />
         </Container>
@@ -136,7 +136,9 @@ const IndexPage = () => {
       </Section>
 
       <Section id="schedule" title={data.contentfulSchedule.sectionTitle}>
-        <Schedule content={data.contentfulSchedule} />
+        <Container type="small">
+          <Schedule content={data.contentfulSchedule} />
+        </Container>
       </Section>
 
       <Section id="register" title="Register">
@@ -145,20 +147,20 @@ const IndexPage = () => {
 
       <Section id="prizes" title={data.contentfulPrizes.sectionTitle}>
         <Container type="small">
-          <Text content={data.contentfulPrizes.childContentfulPrizesPrizesTextNode.childMarkdownRemark.html} center />
+          <Text content={data.contentfulPrizes.childContentfulPrizesPrizesTextNode.childMarkdownRemark.html} />
         </Container>
-        <Container type="medium">
+        <Container type="large">
           <Jury />
         </Container>
       </Section>
 
-      <Section id="partners" title={data.contentfulPartners.sectionTitle}>
-        <Container type="small">
+      <Section id="partners" title={data.contentfulPartners.sectionTitle} center>
+        <Container type="medium">
           <LogoLinks content={data.contentfulPartners} />
         </Container>
       </Section>
 
-      <Section id="contact" title={data.contentfulContact.sectionTitle}>
+      <Section id="contact" title={data.contentfulContact.sectionTitle} center>
         <Container type="small">
           <Text content={data.contentfulContact.contactEmail.childMarkdownRemark.html} center />
         </Container>

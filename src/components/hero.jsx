@@ -17,14 +17,6 @@ const HeroImage = styled(Img)`
   position: absolute;
   height: 100%;
   width: 100%;
-
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: red;
-  }
 `;
 
 const InnerWrapper = styled.div`

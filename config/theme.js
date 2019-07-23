@@ -25,7 +25,7 @@ const theme = {
     hover: '0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)',
   },
   transition: {
-    card: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
+    smoothe: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
   },
 };
 

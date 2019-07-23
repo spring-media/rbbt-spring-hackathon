@@ -21,7 +21,7 @@ const Links = styled.div`
 
     &:nth-child(1) {
       a {
-        background: ${props => props.theme.colors.secondary.darkGrey};
+        background: ${props => props.theme.colors.primary.inkBlue};
       }
     }
     &:nth-child(2) {
@@ -41,6 +41,11 @@ const Links = styled.div`
     padding: 1rem 2rem;
     text-decoration: none;
     font-weight: bold;
+
+    &:hover {
+      color: #fff;
+      transform: scale(1.03);
+    }
   }
 `;
 

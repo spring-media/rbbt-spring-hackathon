@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import GoogleMap from './google-map';
 
 const Address = styled.address`
-  text-align: center;
   font-style: normal;
 `;
 

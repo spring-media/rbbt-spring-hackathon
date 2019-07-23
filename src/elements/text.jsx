@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
   margin-top: 2em;
   margin-bottom: 2em;
+
+  a {
+    color: ${props => props.theme.colors.primary.inkBlue};
+    text-decoration: none;
+    font-weight: bold;
+  }
 
   ${({ center }) =>
     center &&

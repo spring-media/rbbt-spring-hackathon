@@ -3,18 +3,13 @@ import styled from 'styled-components';
 import Container from '../elements/container';
 
 const Wrapper = styled.footer`
-  background: ${props => props.theme.colors.secondary.darkGrey};
+  border-top: 1px solid ${props => props.theme.colors.secondary.lightGrey};
   text-align: center;
 `;
 
 const Content = styled.div`
-  color: #fff;
-  padding-top: 2em;
-  padding-bottom: 1em;
-
-  a {
-    color: #fff;
-  }
+  padding-top: 4rem;
+  padding-bottom: 3rem;
 `;
 
 const Footer = content => {
