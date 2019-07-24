@@ -7,7 +7,7 @@ const Marker = styled.div`
   cursor: pointer;
   width: 30px;
   height: 30px;
-  background-color: ${props => props.theme.colors.primary.orange};
+  background-color: ${props => props.theme.color.orange};
   border-radius: 50% 50% 0;
   transform: rotate(45deg);
 

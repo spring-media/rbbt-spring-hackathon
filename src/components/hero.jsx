@@ -35,7 +35,7 @@ const InnerWrapper = styled.div`
 `;
 
 const Content = styled.div`
-  background: ${props => props.theme.colors.primary.green};
+  background: ${props => props.theme.color.inkBlue};
   text-transform: uppercase;
   font-weight: bold;
   padding: 1.5rem 3rem;
@@ -47,11 +47,11 @@ const Content = styled.div`
   box-shadow: ${props => props.theme.shadow.base};
 
   a {
-    color: ${props => props.theme.colors.primary.yellow};
-    transition: ${props => props.theme.transition.smoothe};
+    /* color: ${props => props.theme.colors.primary.yellow}; */
+    /* transition: ${props => props.theme.transition.smoothe}; */
 
     &:hover {
-      color: ${props => props.theme.colors.primary.orange};
+      /* color: ${props => props.theme.colors.primary.orange}; */
     }
   }
 `;

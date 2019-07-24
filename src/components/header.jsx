@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import logo from '../images/media-hackday-logo.png';
+import logo from '../images/spring-logo.gif';
 
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
@@ -13,13 +13,9 @@ if (typeof window !== 'undefined') {
 const HeaderWrapper = styled.header`
   position: fixed;
   width: 100%;
-  max-width: ${props => props.theme.layout.medium};
   margin: auto;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: #fff;
+  background: ${props => props.theme.color.lightGrey};
   z-index: 2;
 `;
 
@@ -40,16 +36,13 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.div`
-  width: 220px;
   height: 80px;
   align-self: flex-end;
-  background: ${props => props.theme.colors.primary.green};
-  padding: 0 10px;
 
   img {
+    object-fit: contain;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     margin: 0;
   }
 `;
@@ -73,7 +66,7 @@ const StyledLink = styled.a`
   text-decoration: none;
 
   &:before {
-    background-color: ${props => props.theme.colors.primary.yellow};
+    background-color: #000;
     top: 2em;
     content: ' ';
     height: 3px;
@@ -84,7 +77,7 @@ const StyledLink = styled.a`
   }
 
   &:hover {
-    color: ${props => props.theme.colors.primary.green};
+    color: #000;
 
     &:before {
       left: 0;

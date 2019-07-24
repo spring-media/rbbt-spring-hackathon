@@ -34,7 +34,7 @@ const Title = styled.h2`
     right: 0;
     width: 100%;
     height: 1px;
-    background: ${props => props.theme.colors.secondary.whiteGrey};
+    background: ${props => props.theme.color.lightGrey};
   }
 `;
 

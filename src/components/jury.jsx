@@ -12,7 +12,6 @@ const Wrapper = styled.div`
 const Card = styled.div`
   width: 30%;
   margin: 1rem;
-  background: ${props => props.theme.colors.secondary.lightGrey};
   box-shadow: ${props => props.theme.shadow.base};
   transition: ${props => props.theme.transition.smoothe};
 
@@ -25,7 +24,7 @@ const ImageWrapper = styled.figure`
   overflow: hidden;
   object-fit: contain;
   padding: 0;
-  max-height: 350px;
+  max-height: 320px;
 `;
 
 const Info = styled.div`
@@ -35,7 +34,7 @@ const Info = styled.div`
     &:first-child {
       font-weight: bold;
       font-size: 18px;
-      color: ${props => props.theme.colors.primary.green};
+      color: ${props => props.theme.color.inkBlue};
     }
   }
 `;
