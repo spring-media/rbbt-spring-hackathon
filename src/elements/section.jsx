@@ -9,13 +9,11 @@ const Wrapper = styled.section`
 
 const Title = styled.h2`
   font-size: 45px;
-  line-height: 1.06667;
-  max-width: 52rem;
+  max-width: ${props => props.theme.layout.small};
   position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
-  padding-top: 3rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 

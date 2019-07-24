@@ -7,9 +7,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 75vh;
   margin: 0 auto;
-  margin-top: 80px;
+  overflow: hidden;
   max-width: ${props => props.theme.layout.medium};
 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
@@ -47,19 +47,8 @@ const Content = styled.div`
   box-shadow: ${props => props.theme.shadow.base};
 
   a {
-    /* color: ${props => props.theme.colors.primary.yellow}; */
-    /* transition: ${props => props.theme.transition.smoothe}; */
-
-    &:hover {
-      /* color: ${props => props.theme.colors.primary.orange}; */
-    }
+    color: #fff;
   }
-`;
-
-const Logo = styled(Img)`
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 3rem;
 `;
 
 const Hero = () => {
@@ -77,30 +66,22 @@ const Hero = () => {
               html
             }
           }
-          logo {
-            fluid(maxWidth: 400, quality: 80) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
         }
       }
     `
   );
 
   const {
-    contentfulHero: { heroImage, text, logo },
+    contentfulHero: { heroImage, text },
   } = data;
 
   return (
-    <>
-      <Wrapper>
-        <InnerWrapper>
-          <Content dangerouslySetInnerHTML={{ __html: text.childMarkdownRemark.html }} />
-        </InnerWrapper>
-        <HeroImage fluid={heroImage.fluid} />
-      </Wrapper>
-      <Logo fluid={logo.fluid} />
-    </>
+    <Wrapper>
+      <InnerWrapper>
+        <Content dangerouslySetInnerHTML={{ __html: text.childMarkdownRemark.html }} />
+      </InnerWrapper>
+      <HeroImage fluid={heroImage.fluid} />
+    </Wrapper>
   );
 };
 

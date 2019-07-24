@@ -66,7 +66,7 @@ const StyledLink = styled.a`
   text-decoration: none;
 
   &:before {
-    background-color: #000;
+    background-color: ${props => props.theme.color.neonGreen};
     top: 2em;
     content: ' ';
     height: 3px;
