@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
@@ -51,36 +51,20 @@ const Content = styled.div`
   }
 `;
 
-const Hero = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        contentfulHero {
-          heroImage {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          text {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    `
-  );
-
+const Hero = ({ content }) => {
   const {
-    contentfulHero: { heroImage, text },
-  } = data;
+    heroImage: { fluid },
+    text: {
+      childMarkdownRemark: { html },
+    },
+  } = content;
 
   return (
     <Wrapper>
       <InnerWrapper>
-        <Content dangerouslySetInnerHTML={{ __html: text.childMarkdownRemark.html }} />
+        <Content dangerouslySetInnerHTML={{ __html: html }} />
       </InnerWrapper>
-      <HeroImage fluid={heroImage.fluid} />
+      <HeroImage fluid={fluid} />
     </Wrapper>
   );
 };

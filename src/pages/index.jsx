@@ -4,19 +4,31 @@ import Layout from '../components/layout';
 
 // Components
 import Hero from '../components/hero';
+import GoogleMap from '../components/google-map';
+import Schedule from '../components/schedule';
+import Jury from '../components/jury';
+
+// Elements
 import Section from '../elements/section';
 import Container from '../elements/container';
-import About from '../components/about';
-import LocationVenue from '../components/location-venue';
-import Schedule from '../components/schedule';
-import Register from '../components/register';
 import Text from '../elements/text';
-import Jury from '../components/jury';
-import LogoLinks from '../components/logo-links';
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query indexPageQuery {
+      # Hero
+      contentfulHero {
+        heroImage {
+          fluid(maxWidth: 800, quality: 80) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
+        }
+        text {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
       # About
       contentfulAbout {
         sectionTitle
@@ -30,24 +42,9 @@ const IndexPage = () => {
             html
           }
         }
-        # links {
-        #   childMarkdownRemark {
-        #     html
-        #   }
-        # }
       }
-      # Main Partners
-      contentfulMainPartners {
-        sectionTitle
-        logos {
-          title
-          description
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
-      }
-      # Location and Venue
+
+      # Location
       contentfulLocationAndVenue {
         sectionTitle
         address
@@ -55,28 +52,23 @@ const IndexPage = () => {
           lat
           lon
         }
-        # venue {
-        #   fluid(maxWidth: 800, quality: 90) {
-        #     ...GatsbyContentfulFluid_tracedSVG
-        #   }
-        # }
       }
+
       # Schedule
       contentfulSchedule {
         sectionTitle
         firstDay {
-          title
-          fluid(maxWidth: 300, quality: 90) {
+          fluid(maxWidth: 300, quality: 80) {
             ...GatsbyContentfulFluid_tracedSVG
           }
         }
         secondDay {
-          title
-          fluid(maxWidth: 300, quality: 90) {
+          fluid(maxWidth: 300, quality: 80) {
             ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
+
       # Prizes
       contentfulPrizes {
         sectionTitle
@@ -85,27 +77,12 @@ const IndexPage = () => {
             html
           }
         }
-        childContentfulPrizesApiPrizesTextNode {
-          childMarkdownRemark {
-            html
-          }
-        }
       }
-      # Partners
-      contentfulPartners {
-        sectionTitle
-        # logos {
-        #   title
-        #   description
-        #   fluid(maxWidth: 300, quality: 90) {
-        #     ...GatsbyContentfulFluid_withWebp
-        #   }
-        # }
-      }
+
       # Contact
       contentfulContact {
         sectionTitle
-        contactEmail {
+        childContentfulContactContactEmailTextNode {
           childMarkdownRemark {
             html
           }
@@ -116,25 +93,21 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Hero />
+      <Hero content={data.contentfulHero} />
+
       <Section id="about" title={data.contentfulAbout.sectionTitle}>
         <Container type="small">
-          <About content={data.contentfulAbout} />
-        </Container>
-      </Section>
-
-      <Section title={data.contentfulMainPartners.sectionTitle} center>
-        <Container type="small">
-          <LogoLinks content={data.contentfulMainPartners} />
+          <Text content={data.contentfulAbout.mission.childMarkdownRemark.html} />
+          <Text content={data.contentfulAbout.topic.childMarkdownRemark.html} />
         </Container>
       </Section>
 
       <Section id="location" title={data.contentfulLocationAndVenue.sectionTitle}>
         <Container type="small">
-          <LocationVenue content={data.contentfulLocationAndVenue} />
+          <p>{data.contentfulLocationAndVenue.address}</p>
+          <GoogleMap coordinates={data.contentfulLocationAndVenue.coordinates} />
         </Container>
       </Section>
-
       <Section id="schedule" title={data.contentfulSchedule.sectionTitle}>
         <Container type="small">
           <Schedule content={data.contentfulSchedule} />
@@ -142,28 +115,24 @@ const IndexPage = () => {
       </Section>
 
       <Section id="register" title="Register">
-        <Register />
+        &nbsp;
       </Section>
 
       <Section id="prizes" title={data.contentfulPrizes.sectionTitle}>
         <Container type="small">
           <Text content={data.contentfulPrizes.childContentfulPrizesPrizesTextNode.childMarkdownRemark.html} />
-          <Text content={data.contentfulPrizes.childContentfulPrizesApiPrizesTextNode.childMarkdownRemark.html} />
         </Container>
         <Container type="medium">
           <Jury />
         </Container>
       </Section>
 
-      {/* <Section id="partners" title={data.contentfulPartners.sectionTitle} center>
-        <Container type="medium">
-          <LogoLinks content={data.contentfulPartners} />
-        </Container>
-      </Section> */}
-
       <Section id="contact" title={data.contentfulContact.sectionTitle} center>
         <Container type="small">
-          <Text content={data.contentfulContact.contactEmail.childMarkdownRemark.html} center />
+          <Text
+            content={data.contentfulContact.childContentfulContactContactEmailTextNode.childMarkdownRemark.html}
+            center
+          />
         </Container>
       </Section>
     </Layout>

@@ -102,13 +102,12 @@ const Header = () => (
           </Link>
         </Logo>
         <LinkList>
-          <SiteLink to="/">Home</SiteLink>
+          <SiteLink to="/#">Home</SiteLink>
           <SiteLink to="/#about">About</SiteLink>
           <SiteLink to="/#location">Location</SiteLink>
           <SiteLink to="/#schedule">Schedule</SiteLink>
           <SiteLink to="/#register">Register</SiteLink>
           <SiteLink to="/#prizes">Prizes</SiteLink>
-          <SiteLink to="/#partners">Partners</SiteLink>
           <SiteLink to="/#contact">Contact</SiteLink>
         </LinkList>
       </Nav>

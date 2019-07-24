@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import SEO from './seo';
+
 import Header from './header';
 import Footer from './footer';
+
 import theme from '../../config/theme';
 import './layout.css';
 
