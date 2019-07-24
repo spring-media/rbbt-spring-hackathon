@@ -79,6 +79,16 @@ const IndexPage = () => {
         }
       }
 
+      # Code of Conduct
+      contentfulCodeOfConduct {
+        sectionTitle
+        childContentfulCodeOfConductCodeOfConductTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+
       # Contact
       contentfulContact {
         sectionTitle
@@ -124,6 +134,16 @@ const IndexPage = () => {
         </Container>
         <Container type="medium">
           <Jury />
+        </Container>
+      </Section>
+
+      <Section id="coc" title={data.contentfulCodeOfConduct.sectionTitle}>
+        <Container type="small">
+          <Text
+            content={
+              data.contentfulCodeOfConduct.childContentfulCodeOfConductCodeOfConductTextNode.childMarkdownRemark.html
+            }
+          />
         </Container>
       </Section>
 

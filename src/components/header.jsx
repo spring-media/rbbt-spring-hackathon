@@ -108,6 +108,7 @@ const Header = () => (
           <SiteLink to="/#schedule">Schedule</SiteLink>
           <SiteLink to="/#register">Register</SiteLink>
           <SiteLink to="/#prizes">Prizes</SiteLink>
+          <SiteLink to="/#coc">Rules</SiteLink>
           <SiteLink to="/#contact">Contact</SiteLink>
         </LinkList>
       </Nav>
