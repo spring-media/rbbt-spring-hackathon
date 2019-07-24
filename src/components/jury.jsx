@@ -18,6 +18,10 @@ const Card = styled.div`
   &:hover {
     box-shadow: ${props => props.theme.shadow.hover};
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 100%;
+  }
 `;
 
 const ImageWrapper = styled.figure`
@@ -25,6 +29,10 @@ const ImageWrapper = styled.figure`
   object-fit: contain;
   padding: 0;
   max-height: 320px;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    max-height: 220px;
+  }
 `;
 
 const Info = styled.div`

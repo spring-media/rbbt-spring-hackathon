@@ -55,6 +55,10 @@ const LinkList = styled.ul`
     display: inline-flex;
     margin: 0;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled.a`

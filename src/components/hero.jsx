@@ -7,27 +7,32 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   height: 75vh;
   margin: 0 auto;
+  margin-top: 80px;
   overflow: hidden;
   max-width: ${props => props.theme.layout.medium};
 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    background: red;
-    height: 100%;
+    height: 50vh;
   }
 `;
 
 const HeroImage = styled(Img)`
   width: 100%;
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    height: 100%;
+  }
 `;
 
-const InnerWrapper = styled.div`
+const ContentWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 500px;
   z-index: 1;
-  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +44,7 @@ const Content = styled.div`
   text-transform: uppercase;
   font-weight: bold;
   padding: 1.5rem 3rem;
-  font-size: 26px;
+  font-size: calc(1vw + 1vh + 0.5vmin);
   text-align: center;
   line-height: 3rem;
   color: #fff;
@@ -48,6 +53,10 @@ const Content = styled.div`
 
   a {
     color: #fff;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    font-size: 18px;
   }
 `;
 
@@ -61,9 +70,9 @@ const Hero = ({ content }) => {
 
   return (
     <Wrapper>
-      <InnerWrapper>
+      <ContentWrapper>
         <Content dangerouslySetInnerHTML={{ __html: html }} />
-      </InnerWrapper>
+      </ContentWrapper>
       <HeroImage fluid={fluid} />
     </Wrapper>
   );

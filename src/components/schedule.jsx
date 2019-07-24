@@ -6,11 +6,15 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  text-align: center;
 `;
 
 const ImageContainer = styled.section`
   width: 30%;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const Schedule = ({ content: { firstDay, secondDay } }) => (

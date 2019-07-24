@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  width: 100%;
+  height: 500px;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    height: 350px;
+  }
+`;
+
 const Marker = styled.div`
   cursor: pointer;
   width: 30px;
@@ -42,7 +51,7 @@ const GoogleMap = props => {
   };
 
   return (
-    <div style={{ height: '500px', width: '100%' }}>
+    <Wrapper>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_API_KEY }}
         defaultCenter={defaultProps.center}
@@ -50,7 +59,7 @@ const GoogleMap = props => {
       >
         <Marker lat={lat} lng={lng} onClick={redirectMap} />
       </GoogleMapReact>
-    </div>
+    </Wrapper>
   );
 };
 
