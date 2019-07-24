@@ -20,11 +20,6 @@ const IndexPage = () => {
       # About
       contentfulAbout {
         sectionTitle
-        video {
-          childMarkdownRemark {
-            html
-          }
-        }
         mission {
           childMarkdownRemark {
             html
@@ -35,11 +30,11 @@ const IndexPage = () => {
             html
           }
         }
-        links {
-          childMarkdownRemark {
-            html
-          }
-        }
+        # links {
+        #   childMarkdownRemark {
+        #     html
+        #   }
+        # }
       }
       # Main Partners
       contentfulMainPartners {
@@ -60,11 +55,11 @@ const IndexPage = () => {
           lat
           lon
         }
-        venue {
-          fluid(maxWidth: 800, quality: 90) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
+        # venue {
+        #   fluid(maxWidth: 800, quality: 90) {
+        #     ...GatsbyContentfulFluid_tracedSVG
+        #   }
+        # }
       }
       # Schedule
       contentfulSchedule {
@@ -99,13 +94,13 @@ const IndexPage = () => {
       # Partners
       contentfulPartners {
         sectionTitle
-        logos {
-          title
-          description
-          fluid(maxWidth: 300, quality: 90) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
+        # logos {
+        #   title
+        #   description
+        #   fluid(maxWidth: 300, quality: 90) {
+        #     ...GatsbyContentfulFluid_withWebp
+        #   }
+        # }
       }
       # Contact
       contentfulContact {
@@ -160,11 +155,11 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section id="partners" title={data.contentfulPartners.sectionTitle} center>
+      {/* <Section id="partners" title={data.contentfulPartners.sectionTitle} center>
         <Container type="medium">
           <LogoLinks content={data.contentfulPartners} />
         </Container>
-      </Section>
+      </Section> */}
 
       <Section id="contact" title={data.contentfulContact.sectionTitle} center>
         <Container type="small">

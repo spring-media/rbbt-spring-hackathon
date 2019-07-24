@@ -25,6 +25,7 @@ const ImageWrapper = styled.figure`
   overflow: hidden;
   object-fit: contain;
   padding: 0;
+  max-height: 350px;
 `;
 
 const Info = styled.div`

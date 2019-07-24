@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 import styled from 'styled-components';
 import GoogleMap from './google-map';
 
@@ -13,15 +13,13 @@ const Wrapper = styled.div`
   margin-bottom: 3em;
 `;
 
-const LocationVenue = ({ content: { address, coordinates, venue } }) => (
+const LocationVenue = ({ content: { address, coordinates } }) => (
   <>
     <Address>{address}</Address>
     <Wrapper>
       <GoogleMap coordinates={coordinates} />
     </Wrapper>
-    <Wrapper>
-      <Img fluid={venue.fluid} />
-    </Wrapper>
+    <Wrapper>{/* <Img fluid={venue.fluid} /> */}</Wrapper>
   </>
 );
 

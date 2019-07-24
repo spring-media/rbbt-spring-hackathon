@@ -56,7 +56,7 @@ const Content = styled.div`
   }
 `;
 
-const Sponsors = styled(Img)`
+const Logo = styled(Img)`
   width: 50%;
   margin: 0 auto;
   margin-top: 3rem;
@@ -77,8 +77,8 @@ const Hero = () => {
               html
             }
           }
-          sponsors {
-            fluid(maxWidth: 300, quality: 80) {
+          logo {
+            fluid(maxWidth: 400, quality: 80) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
@@ -88,7 +88,7 @@ const Hero = () => {
   );
 
   const {
-    contentfulHero: { heroImage, sponsors, text },
+    contentfulHero: { heroImage, text, logo },
   } = data;
 
   return (
@@ -99,7 +99,7 @@ const Hero = () => {
         </InnerWrapper>
         <HeroImage fluid={heroImage.fluid} />
       </Wrapper>
-      <Sponsors fluid={sponsors.fluid} />
+      <Logo fluid={logo.fluid} />
     </>
   );
 };
