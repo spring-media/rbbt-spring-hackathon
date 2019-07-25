@@ -11,27 +11,27 @@ module.exports = {
     author: 'sebastian.spoerer@spring-media.de',
     menuLinks: [
       {
-        name: 'home',
+        name: 'Home',
         to: '/',
       },
       {
-        name: 'about',
+        name: 'About',
         to: '/#',
       },
       {
-        name: 'location',
+        name: 'Location',
         to: '/#location',
       },
       {
-        name: 'schedule',
+        name: 'Schedule',
         to: '/#schedule',
       },
       {
-        name: 'register',
+        name: 'Register',
         to: '/#register',
       },
       {
-        name: 'prizes',
+        name: 'Prizes',
         to: '/#prizes',
       },
       {
@@ -39,7 +39,7 @@ module.exports = {
         to: '/#rules',
       },
       {
-        name: 'contact',
+        name: 'Contact',
         to: '/#contact',
       },
     ],

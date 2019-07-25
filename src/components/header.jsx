@@ -59,10 +59,10 @@ const LinkList = styled.ul`
     display: inline-flex;
     margin: 0;
   }
-
+/* 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     display: none;
-  }
+  } */
 `;
 
 const StyledLink = styled.a`
@@ -94,21 +94,6 @@ const StyledLink = styled.a`
   }
 `;
 
-const Hamburger = styled.a`
-  width: 40px;
-  height: 40px;
-  background-color: black;
-  cursor: pointer;
-
-  @media (min-width: ${props => props.theme.breakpoints.m}) {
-    display: none;
-  }
-`;
-
-const hamburgerHandler = () => {
-  console.log('dodoodd');
-};
-
 const renderMenuLinks = menuLinks => (
   <LinkList>
     {menuLinks.map(link => (
@@ -129,7 +114,6 @@ const Header = ({ menuLinks }) => (
           </Link>
         </Logo>
         {renderMenuLinks(menuLinks)}
-        <Hamburger onClick={hamburgerHandler} className="bm-burger-button" />
       </Nav>
     </Wrapper>
   </HeaderWrapper>
