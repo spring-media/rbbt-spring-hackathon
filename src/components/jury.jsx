@@ -47,8 +47,8 @@ const Info = styled.div`
   }
 `;
 
-const renderJury = (title, fluid, description) => (
-  <Card key={title}>
+const renderJury = (title, fluid, description, id) => (
+  <Card key={id}>
     <ImageWrapper>
       <Img fluid={fluid} />
     </ImageWrapper>
@@ -64,6 +64,7 @@ const Jury = () => {
     query JuryQuery {
       contentfulPrizes {
         jury {
+          id
           title
           fluid(maxWidth: 300, quality: 90) {
             ...GatsbyContentfulFluid_tracedSVG
@@ -74,7 +75,9 @@ const Jury = () => {
     }
   `);
   return (
-    <Wrapper>{data.contentfulPrizes.jury.map(item => renderJury(item.title, item.fluid, item.description))}</Wrapper>
+    <Wrapper>
+      {data.contentfulPrizes.jury.map(item => renderJury(item.title, item.fluid, item.description, item.id))}
+    </Wrapper>
   );
 };
 

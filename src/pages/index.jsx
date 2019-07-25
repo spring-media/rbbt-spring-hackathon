@@ -79,6 +79,16 @@ const IndexPage = () => {
         }
       }
 
+      # Register
+      contentfulRegister {
+        sectionTitle
+        childContentfulRegisterInformationTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+
       # Code of Conduct
       contentfulCodeOfConduct {
         sectionTitle
@@ -124,8 +134,10 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section id="register" title="Register">
-        &nbsp;
+      <Section id="register" title={data.contentfulRegister.sectionTitle}>
+        <Container type="small">
+          <Text content={data.contentfulRegister.childContentfulRegisterInformationTextNode.childMarkdownRemark.html} />
+        </Container>
       </Section>
 
       <Section id="prizes" title={data.contentfulPrizes.sectionTitle}>
@@ -137,7 +149,7 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section id="coc" title={data.contentfulCodeOfConduct.sectionTitle}>
+      <Section id="rules" title={data.contentfulCodeOfConduct.sectionTitle}>
         <Container type="small">
           <Text
             content={

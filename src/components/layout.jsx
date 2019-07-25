@@ -12,7 +12,15 @@ import './layout.css';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query GlobalQuery {
+      site {
+        siteMetadata {
+          menuLinks {
+            name
+            to
+          }
+        }
+      }
       contentfulFooter {
         footerContent {
           childMarkdownRemark {
@@ -23,13 +31,20 @@ const Layout = ({ children }) => {
     }
   `);
 
+  const {
+    site: {
+      siteMetadata: { menuLinks },
+    },
+    contentfulFooter: { footerContent },
+  } = data;
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <SEO title="Home" />
-        <Header />
+        <Header menuLinks={menuLinks} />
         <main>{children}</main>
-        <Footer content={data.contentfulFooter.footerContent} />
+        <Footer content={footerContent} />
       </>
     </ThemeProvider>
   );

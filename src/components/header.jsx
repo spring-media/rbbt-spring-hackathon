@@ -17,6 +17,10 @@ const HeaderWrapper = styled.header`
   top: 0;
   background: ${props => props.theme.color.lightGrey};
   z-index: 2;
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    padding: 0 0.5em;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -56,7 +60,7 @@ const LinkList = styled.ul`
     margin: 0;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
     display: none;
   }
 `;
@@ -90,13 +94,32 @@ const StyledLink = styled.a`
   }
 `;
 
-const SiteLink = ({ to, children }) => (
-  <li>
-    <StyledLink href={to}>{children}</StyledLink>
-  </li>
+const Hamburger = styled.a`
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  cursor: pointer;
+
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
+    display: none;
+  }
+`;
+
+const hamburgerHandler = () => {
+  console.log('dodoodd');
+};
+
+const renderMenuLinks = menuLinks => (
+  <LinkList>
+    {menuLinks.map(link => (
+      <StyledLink href={link.to} key={link.to}>
+        {link.name}
+      </StyledLink>
+    ))}
+  </LinkList>
 );
 
-const Header = () => (
+const Header = ({ menuLinks }) => (
   <HeaderWrapper>
     <Wrapper>
       <Nav>
@@ -105,29 +128,15 @@ const Header = () => (
             <img src={logo} alt="Spring Media" />
           </Link>
         </Logo>
-        <LinkList>
-          <SiteLink to="/#">Home</SiteLink>
-          <SiteLink to="/#about">About</SiteLink>
-          <SiteLink to="/#location">Location</SiteLink>
-          <SiteLink to="/#schedule">Schedule</SiteLink>
-          <SiteLink to="/#register">Register</SiteLink>
-          <SiteLink to="/#prizes">Prizes</SiteLink>
-          <SiteLink to="/#coc">Rules</SiteLink>
-          <SiteLink to="/#contact">Contact</SiteLink>
-        </LinkList>
+        {renderMenuLinks(menuLinks)}
+        <Hamburger onClick={hamburgerHandler} className="bm-burger-button" />
       </Nav>
     </Wrapper>
   </HeaderWrapper>
 );
 
-SiteLink.defaultProps = {
-  to: '',
-  children: PropTypes.children,
-};
-
-SiteLink.propTypes = {
-  to: PropTypes.string,
-  children: PropTypes.string,
+Header.propTypes = {
+  menuLinks: PropTypes.array.isRequired,
 };
 
 export default Header;

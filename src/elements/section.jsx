@@ -7,7 +7,7 @@ const Wrapper = styled.section`
   margin: 5rem 0;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-size: 45px;
   max-width: ${props => props.theme.layout.small};
   position: relative;

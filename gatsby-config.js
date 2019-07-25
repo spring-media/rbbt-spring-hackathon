@@ -9,6 +9,40 @@ module.exports = {
     title: 'Springathon 2019',
     description: 'Springathon 19th and 20th of August 2019',
     author: 'sebastian.spoerer@spring-media.de',
+    menuLinks: [
+      {
+        name: 'home',
+        to: '/',
+      },
+      {
+        name: 'about',
+        to: '/#',
+      },
+      {
+        name: 'location',
+        to: '/#location',
+      },
+      {
+        name: 'schedule',
+        to: '/#schedule',
+      },
+      {
+        name: 'register',
+        to: '/#register',
+      },
+      {
+        name: 'prizes',
+        to: '/#prizes',
+      },
+      {
+        name: 'Rules',
+        to: '/#rules',
+      },
+      {
+        name: 'contact',
+        to: '/#contact',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',
