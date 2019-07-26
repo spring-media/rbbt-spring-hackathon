@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const siteConfig = require('./config/site');
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
@@ -6,43 +7,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: 'Springathon 2019',
-    description: 'Springathon 19th and 20th of August 2019',
-    author: 'sebastian.spoerer@spring-media.de',
-    menuLinks: [
-      {
-        name: 'Home',
-        to: '/',
-      },
-      {
-        name: 'About',
-        to: '/#',
-      },
-      {
-        name: 'Location',
-        to: '/#location',
-      },
-      {
-        name: 'Schedule',
-        to: '/#schedule',
-      },
-      {
-        name: 'Register',
-        to: '/#register',
-      },
-      {
-        name: 'Prizes',
-        to: '/#prizes',
-      },
-      {
-        name: 'Rules',
-        to: '/#rules',
-      },
-      {
-        name: 'Contact',
-        to: '/#contact',
-      },
-    ],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    author: siteConfig.author,
+    menuLinks: siteConfig.menuLinks,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -50,8 +18,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-eslint',
-    'gatsby-transformer-remark',
-    'gatsby-transformer-remark',
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-contentful',
@@ -65,6 +31,21 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: '@raae/gatsby-remark-oembed',
+            options: {
+              // usePrefix defaults to false
+              // usePrefix: true is the same as ["oembed"]
+              usePrefix: ['oembed'],
+            },
+          },
+        ],
       },
     },
     {

@@ -7,6 +7,7 @@ import Hero from '../components/hero';
 import GoogleMap from '../components/google-map';
 import Schedule from '../components/schedule';
 import Jury from '../components/jury';
+import Widget from '../components/widget';
 
 // Elements
 import Section from '../elements/section';
@@ -87,6 +88,11 @@ const IndexPage = () => {
             html
           }
         }
+        eventbriteOembed {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
 
       # Code of Conduct
@@ -137,6 +143,7 @@ const IndexPage = () => {
       <Section id="register" title={data.contentfulRegister.sectionTitle}>
         <Container type="small">
           <Text content={data.contentfulRegister.childContentfulRegisterInformationTextNode.childMarkdownRemark.html} />
+          <Widget />
         </Container>
       </Section>
 
