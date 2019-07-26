@@ -19,7 +19,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-eslint',
     'gatsby-plugin-offline',
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-contentful',
       options: {
