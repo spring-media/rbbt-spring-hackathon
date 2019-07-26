@@ -19,6 +19,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-eslint',
     'gatsby-plugin-offline',
+    'gatsby-transformer-remark'
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -31,21 +32,6 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: '@raae/gatsby-remark-oembed',
-            options: {
-              // usePrefix defaults to false
-              // usePrefix: true is the same as ["oembed"]
-              usePrefix: ['oembed'],
-            },
-          },
-        ],
       },
     },
     {
