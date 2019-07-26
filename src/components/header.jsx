@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
@@ -7,7 +7,7 @@ import logo from '../images/spring-logo.gif';
 
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]');
+  require('smooth-scroll')('a[href*="#"]', { header: '[data-scroll-header]' });
 }
 
 const HeaderWrapper = styled.header`
@@ -51,7 +51,7 @@ const Logo = styled.div`
   }
 `;
 
-const LinkList = styled.ul`
+const MenuLinks = styled.ul`
   list-style: none;
   margin: 0;
 
@@ -59,10 +59,26 @@ const LinkList = styled.ul`
     display: inline-flex;
     margin: 0;
   }
-/* 
+
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     display: none;
-  } */
+
+    &.active {
+      border-top: 3px solid ${props => props.theme.color.inkBlue};
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: center;
+      width: 100%;
+      height: 100vh;
+      bottom: -100vh;
+      padding-top: 3em;
+      padding-left: 4em;
+      background: #fff;
+      left: 0;
+    }
+  }
 `;
 
 const StyledLink = styled.a`
@@ -92,32 +108,73 @@ const StyledLink = styled.a`
       right: 0;
     }
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    &.active {
+      margin-bottom: 0.5rem;
+    }
+  }
 `;
 
-const renderMenuLinks = menuLinks => (
-  <LinkList>
-    {menuLinks.map(link => (
-      <StyledLink href={link.to} key={link.to}>
-        {link.name}
-      </StyledLink>
-    ))}
-  </LinkList>
-);
+const Hamburger = styled.a`
+  position: relative;
+  width: 30px;
+  height: 28px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  cursor: pointer;
 
-const Header = ({ menuLinks }) => (
-  <HeaderWrapper>
-    <Wrapper>
-      <Nav>
-        <Logo>
-          <Link to="/">
-            <img src={logo} alt="Spring Media" />
-          </Link>
-        </Logo>
-        {renderMenuLinks(menuLinks)}
-      </Nav>
-    </Wrapper>
-  </HeaderWrapper>
-);
+  span {
+    height: 6px;
+    width: 100%;
+    background: black;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.m}) {
+    display: none;
+  }
+`;
+
+const Header = ({ menuLinks }) => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const activeMenu = showMenu ? 'active' : '';
+  const activeBurger = showMenu ? 'active' : '';
+
+  return (
+    <HeaderWrapper data-scroll-header>
+      <Wrapper>
+        <Nav>
+          <Logo>
+            <Link to="/">
+              <img src={logo} alt="Spring Media" />
+            </Link>
+          </Logo>
+          <Hamburger onClick={() => setShowMenu(!showMenu)} className={`${activeBurger}`}>
+            <span />
+            <span />
+            <span />
+          </Hamburger>
+          <MenuLinks className={`${activeMenu}`}>
+            {menuLinks.map(link => (
+              <li>
+                <StyledLink
+                  href={link.to}
+                  key={link.to}
+                  className={`${activeMenu}`}
+                  onClick={() => setShowMenu(!showMenu)}
+                >
+                  {link.name}
+                </StyledLink>
+              </li>
+            ))}
+          </MenuLinks>
+        </Nav>
+      </Wrapper>
+    </HeaderWrapper>
+  );
+};
 
 Header.propTypes = {
   menuLinks: PropTypes.array.isRequired,

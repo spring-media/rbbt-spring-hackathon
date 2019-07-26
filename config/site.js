@@ -5,7 +5,7 @@ const menuLinks = [
   },
   {
     name: 'About',
-    to: '/#',
+    to: '/#about',
   },
   {
     name: 'Location',

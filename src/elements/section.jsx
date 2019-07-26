@@ -17,6 +17,10 @@ const Title = styled.h3`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    font-size: 32px;
+  }
+
   ${({ center }) =>
     center &&
     `
