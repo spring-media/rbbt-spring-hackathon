@@ -88,11 +88,6 @@ const IndexPage = () => {
             html
           }
         }
-        eventbriteOembed {
-          childMarkdownRemark {
-            html
-          }
-        }
       }
 
       # Code of Conduct
