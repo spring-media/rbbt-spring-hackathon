@@ -45,11 +45,9 @@ const Nav = styled.nav`
 
 const Logo = styled.div`
   height: 80px;
-  align-self: flex-end;
 
   img {
     object-fit: contain;
-    width: 100%;
     height: 100%;
     margin: 0;
   }
@@ -155,7 +153,7 @@ const Header = ({ menuLinks }) => {
       <Wrapper>
         <Nav>
           <Logo>
-            <Link to="/">
+            <Link to="/#">
               <img src={logo} alt="Spring Media" />
             </Link>
           </Logo>
