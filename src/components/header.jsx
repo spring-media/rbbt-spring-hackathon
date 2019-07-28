@@ -37,6 +37,10 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   max-width: ${props => props.theme.layout.medium};
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    padding: 0 0.5em;
+  }
 `;
 
 const Logo = styled.div`
@@ -48,6 +52,10 @@ const Logo = styled.div`
     width: 100%;
     height: 100%;
     margin: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 140px;
   }
 `;
 
@@ -118,10 +126,10 @@ const StyledLink = styled.a`
 
 const Hamburger = styled.a`
   position: relative;
-  width: 30px;
+  width: 35px;
   height: 28px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   cursor: pointer;
 
