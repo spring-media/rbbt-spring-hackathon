@@ -53,6 +53,10 @@ const Content = styled.div`
 
   a {
     color: #fff;
+
+    &:hover {
+      color: ${props => props.theme.color.pink};
+    }
   }
 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
