@@ -37,8 +37,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Springathon - 19th & 20th August, 2019',
+        short_name: 'Springathon',
         start_url: '/',
         background_color: '#0000ff',
         theme_color: '#0000ff',
