@@ -32,6 +32,14 @@ const Marker = styled.div`
   }
 `;
 
+const MapLink = styled.p`
+  margin-bottom: 1.5em;
+
+  a {
+    cursor: pointer;
+  }
+`;
+
 const GoogleMap = props => {
   const { coordinates } = props;
   const lat = parseFloat(coordinates.lat);
@@ -45,6 +53,8 @@ const GoogleMap = props => {
     zoom: 13,
   };
 
+  const voidFunction = () => {};
+
   const redirectMap = () => {
     const url = `http://www.google.com/maps/place/${lat},${lng}`;
     window.open(url, '_blank');
@@ -52,6 +62,13 @@ const GoogleMap = props => {
 
   return (
     <Wrapper>
+      <MapLink>
+        Click{' '}
+        <a onClick={redirectMap} role="link" tabIndex="-1" onKeyDown={voidFunction}>
+          here
+        </a>{' '}
+        to open in Google maps
+      </MapLink>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_API_KEY }}
         defaultCenter={defaultProps.center}
