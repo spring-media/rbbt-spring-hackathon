@@ -7,7 +7,9 @@ import logo from '../images/spring-logo.gif';
 
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]', { header: '[data-scroll-header]' });
+  require('smooth-scroll')('a[href*="#"]', {
+    header: '[data-scroll-header]',
+  });
 }
 
 const HeaderWrapper = styled.header`
@@ -18,7 +20,7 @@ const HeaderWrapper = styled.header`
   background: ${props => props.theme.color.lightGrey};
   z-index: 2;
 
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${props => props.theme.breakpoints.xl}) {
     padding: 0 0.5em;
   }
 `;
