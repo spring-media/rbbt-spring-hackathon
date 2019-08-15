@@ -4,12 +4,13 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex; */
+  /* justify-content: flex-start; */
 `;
 
 const ImageContainer = styled.section`
-  width: 30%;
+  width: 60%;
+  display: block;
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     display: block;
