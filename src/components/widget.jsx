@@ -1,27 +1,21 @@
 import React from 'react';
 
-const loadWidget = async () => {
-  const options = {
-    // Required
-    widgetType: 'checkout',
-    eventId: '66460668649',
-    iframeContainerId: 'eventbrite-widget-container',
-
-    // Optional
-    iframeContainerHeight: 425, // Widget height in pixels. Defaults to a minimum of 425px if not provided
-  };
-
-  const eb = await window.EBWidgets;
-
-  return eb.createWidget(options);
+const style = {
+  width: '100%',
+  height: '116px',
 };
 
 function Widget() {
-  loadWidget();
   return (
     <>
-      <h3>Register now!</h3>
-      <div id="eventbrite-widget-container" />
+      <iframe
+        title="foo"
+        scrolling="no"
+        style={style}
+        frameBorder="0"
+        allowTransparency="true"
+        src="//www.webcountdown.de/e.php?a=cY3YLgK"
+      />
     </>
   );
 }

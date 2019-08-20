@@ -135,9 +135,8 @@ const IndexPage = () => {
         </Container>
       </Section>
 
-      <Section id="register" title={data.contentfulRegister.sectionTitle}>
+      <Section id="countdown" title="Countdown">
         <Container type="small">
-          <Text content={data.contentfulRegister.childContentfulRegisterInformationTextNode.childMarkdownRemark.html} />
           <Widget />
         </Container>
       </Section>

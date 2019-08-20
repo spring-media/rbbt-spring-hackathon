@@ -16,8 +16,8 @@ const menuLinks = [
     to: '/#schedule',
   },
   {
-    name: 'Register',
-    to: '/#register',
+    name: 'Countdown',
+    to: '/#countdown',
   },
   {
     name: 'Prizes',
